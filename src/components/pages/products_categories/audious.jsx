@@ -10,7 +10,7 @@ export default function Audios() {
     // const [productsPerPage] = useState(12);
 
     useEffect(() => {
-        axios.get('https://web-shopping-exclusive.onrender.com/products')
+        axios.get('http://localhost:8081/api/v1/product/getAll')
             .then(response => setProducts(response.data))
             .catch(err => console.log(err))
     }, []);
@@ -101,18 +101,18 @@ export default function Audios() {
                             {products
                                 .filter(product => product.type === "audios")
                                 .map(product => (
-                                    <div className="product-item" key={product._id}>
-                                        <Link to={`/detail/${product._id}`}>
+                                    <div className="product-item" key={product.id}>
+                                        <Link to={`/detail/${product.id}`}>
                                             <div className="product-item__img">
-                                                <img src={product.product_image} alt="product-img" />
+                                            <img src= {`http://localhost:8081/api/v1/product/show/${product.id}`} alt="product-img" />
                                                 <button className="add-cart" type="button">
                                                     Add To Cart
                                                 </button>
                                             </div>
-                                            <h4 className="product-name webkit-text">{product.product_name}</h4>
+                                            <h4 className="product-name webkit-text">{product.productName}</h4>
                                         </Link>
                                         <div className="product-price">
-                                            {product.sale_type === "no" ? (
+                                            {product.saleType === "no" ? (
                                                 <>
                                                     <span id="price-new">${product.price}</span>
                                                 </>
@@ -127,9 +127,9 @@ export default function Audios() {
                                         </div>
                                         <div className="product-action">
                                             <i className="bx bx-map-pin" />
-                                            <span>{product.storage_address}</span>
+                                            <span>{product.storageAddress}</span>
                                         </div>
-                                        {product.sale_type === "no" ? (
+                                        {product.saleType === "no" ? (
                                             <>
                                                 <span></span>
                                             </>

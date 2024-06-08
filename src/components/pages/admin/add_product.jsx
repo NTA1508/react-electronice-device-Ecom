@@ -19,7 +19,7 @@ export default function AddProduct() {
     e.preventDefault();
     console.log({productType, stock, storageAddress})
     axios
-      .post("https://web-shopping-exclusive.onrender.com/products/create", {
+      .post("http://localhost:8081/api/v1/product/add", {
         productName, image, productType, description, price, sales, promotionType, storageAddress, stock
       })
       .then((result) => {

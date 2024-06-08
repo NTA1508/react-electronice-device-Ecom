@@ -26,7 +26,6 @@ export default function Admin() {
 
   return (
     <>
-      {user ? (
         <div
           className="container"
           style={{ marginBottom: "29px", marginTop: "10px" }}
@@ -151,15 +150,6 @@ export default function Admin() {
             </div>
           </div>
         </div>
-      ) : (
-        <div className="container" style={{ marginBottom: "29px", marginTop: "10px" }}>
-            <div className="wrapper">
-                <div style={{ width: "100%", textAlign: "center", fontSize: "30px" }}>
-                    <h2>You are not Admin</h2>
-                </div>
-            </div>
-        </div>
-      )}
     </>
   );
 }

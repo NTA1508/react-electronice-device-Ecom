@@ -10,7 +10,7 @@ export default function ProductCate() {
     // const [productsPerPage] = useState(12);
 
     useEffect(() => {
-        axios.get('https://web-shopping-exclusive.onrender.com/products')
+        axios.get('http://localhost:8081/api/v1/product/getAll')
             .then(response => setProducts(response.data))
             .catch(err => console.log(err))
     }, []);
@@ -100,10 +100,10 @@ export default function ProductCate() {
                     <div className="wishlist-wrap">
                         <div className="wishlist-list">
                             {products.map(products => (
-                                <div className="product-item" key={products._id}>
-                                    <Link to={`/detail/${products._id}`}>
+                                <div className="product-item" key={products.id}>
+                                    <Link to={`/detail/${products.id}`}>
                                         <div className="product-item__img">
-                                            <img src={products.product_image} alt="product-img" />
+                                        <img src= {`http://localhost:8081/api/v1/product/show/${products.id}`} alt="product-img" />
                                             <button className="add-cart" type="button">
                                                 Add To Cart
                                             </button>
@@ -126,9 +126,9 @@ export default function ProductCate() {
                                     </div>
                                     <div className="product-action">
                                         <i className="bx bx-map-pin" />
-                                        <span>{products.storage_address}</span>
+                                        <span>{products.storageAddress}</span>
                                     </div>
-                                    {products.sale_type === "no" ? (
+                                    {products.saleType === "no" ? (
                                         <>
                                             <span></span>
                                         </>
