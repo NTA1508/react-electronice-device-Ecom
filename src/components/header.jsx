@@ -51,7 +51,7 @@ export default function Header() {
 
   useEffect(() => {
     axios
-      .get("https://web-shopping-exclusive.onrender.com/products")
+      .get("http://localhost:8081/api/v1/product/getAll")
       .then((response) => setProducts(response.data))
       .catch((err) => console.log(err));
   }, []);
@@ -79,7 +79,7 @@ export default function Header() {
   useEffect(() => {
     // Filter products based on the search query
     const filteredProducts = products.filter((product) =>
-      product.product_name.toLowerCase().startsWith(searchQuery.toLowerCase())
+      product.productName.toLowerCase().startsWith(searchQuery.toLowerCase())
     );
 
     setSearchResults(filteredProducts);
@@ -176,10 +176,10 @@ export default function Header() {
                         </div>
                         <div className="search-list">
                           {searchResults.map((result) => (
-                            <Link to={`/detail/${result._id}`} key={result.id}>
+                            <Link to={`/detail/${result.id}`} key={result.id}>
                               <div className="search-item">
                                 <i className="bx bx-search icon-search"></i>
-                                <span>{result.product_name}</span>
+                                <span>{result.productName}</span>
                               </div>
                             </Link>
                           ))}

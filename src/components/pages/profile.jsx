@@ -3,8 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 function Profile() {
   const [edit, setEdit] = useState(false);
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  const [userName, setUserName] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
   const [email, setEmail] = useState();
   const [address, setAddress] = useState();
   // const [avata, setAvata] = useState("");
@@ -18,11 +18,11 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get("https://web-shopping-exclusive.onrender.com/getUser/" + id)
+      .get(`http://localhost:8081/api/v1/user/${id}`)
       .then((result) => {
         // console.log(result)
-        setFirstName(result.data.firstName);
-        setLastName(result.data.lastName);
+        setUserName(result.data.userName);
+        setPhoneNumber(result.data.phoneNumber);
         setEmail(result.data.email);
         setAddress(result.data.address);
       })
@@ -34,8 +34,8 @@ function Profile() {
     e.preventDefault();
     axios
       .put("https://web-shopping-exclusive.onrender.com/updateUser/" + id, {
-        firstName,
-        lastName,
+        userName,
+        phoneNumber,
         email,
         address,
         currentpass,
@@ -70,7 +70,7 @@ function Profile() {
               <div className="contact-fix2">
                 <p>My Account</p>&#160;
                 <p style={{ float: "right" }}>
-                  Wellcome {firstName + lastName}
+                  Wellcome {userName}
                 </p>
               </div>
             </div>
@@ -86,25 +86,25 @@ function Profile() {
               {/* <img src={avata} alt="" style={{ width: "50px"}} /> */}
               <div className="account-group">
                 <div className="account-form">
-                  <label>First Name</label>
+                  <label>User Name</label>
                   <input
                     className="contact-input"
                     id="account-input"
                     type="text"
-                    value={firstName}
+                    value={userName}
                     disabled={edit === false}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
                 <div className="account-form">
-                  <label>Last Name</label>
+                  <label>Phone Number</label>
                   <input
                     className="contact-input"
                     id="account-input"
                     type="text"
-                    value={lastName}
+                    value={phoneNumber}
                     disabled={edit === false}
-                    onChange={(e) => setLastName(e.target.value)}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
                   />
                 </div>
               </div>

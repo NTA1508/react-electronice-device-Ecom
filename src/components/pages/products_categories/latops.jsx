@@ -13,7 +13,6 @@ export default function Laptops() {
         axios.get('http://localhost:8081/api/v1/product/getAll')
             .then(response => {
                 setProducts(response.data);
-                console.log(response)
             })
             .catch(err => console.log(err))
     }, [products]);
