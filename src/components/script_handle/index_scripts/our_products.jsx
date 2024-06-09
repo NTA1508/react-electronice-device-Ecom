@@ -6,7 +6,7 @@ const OurProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://web-shopping-exclusive.onrender.com/products')
+    axios.get('http://localhost:8081/api/v1/product/getAll')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);
@@ -23,17 +23,17 @@ const OurProducts = () => {
     }
     const productItem = (
       <div key={products.id} className="product-item">
-        <Link to={`/detail/${products._id}`}>
+        <Link to={`/detail/${products.id}`}>
           <div className="product-item__img">
-            <img src={products.product_image} alt="product-img" />
+          <img src= {`http://localhost:8081/api/v1/product/show/${products.id}`} alt="product-img" />
             <button className="add-cart" type="button">
               Add To Cart
             </button>
           </div>
-          <h4 className="product-name webkit-text">{products.product_name}</h4>
+          <h4 className="product-name webkit-text">{products.productName}</h4>
         </Link>
         <div className="product-price">
-          {products.sale_type === "no" ? (
+          {products.saleType === "no" ? (
             <>
               <span id="price-new">${products.price}</span>
             </>
@@ -48,9 +48,9 @@ const OurProducts = () => {
         </div>
         <div className="product-action">
           <i className="bx bx-map-pin" />
-          <span>{products.storage_address}</span>
+          <span>{products.storageAddress}</span>
         </div>
-        {products.sale_type === "no" ? (
+        {products.saleType === "no" ? (
           <>
             <span></span>
           </>

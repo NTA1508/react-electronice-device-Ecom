@@ -6,7 +6,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://web-shopping-exclusive.onrender.com/products')
+    axios.get('http://localhost:8081/api/v1/product/getAll')
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);
@@ -21,17 +21,17 @@ const ProductList = () => {
     if (count === 0) {
       productChildren = [];
     }
-    if (product.sale_type === "month") {
+    if (product.saleType === "month") {
       const productItem = (
         <div key={product.id} className="product-item">
-          <Link to={`/detail/${product._id}`}>
+          <Link to={`/detail/${product.id}`}>
             <div className="product-item__img">
-              <img src={product.product_image} alt="product-img" />
+            <img src= {`http://localhost:8081/api/v1/product/show/${product.id}`} alt="product-img" />
               <button className="add-cart" type="button">
                 Add To Cart
               </button>
             </div>
-            <h4 className="product-name webkit-text">{product.product_name}</h4>
+            <h4 className="product-name webkit-text">{product.productName}</h4>
           </Link>
           <div className="product-price">
             <span id="price-new">${product.price - (product.price * product.sales / 100)}</span>
@@ -39,7 +39,7 @@ const ProductList = () => {
           </div>
           <div className="product-action">
             <i className='bx bx-map-pin'></i>
-            <span>{product.storage_address}</span>
+            <span>{product.storageAddress}</span>
           </div>
           <div className="discount">-{product.sales}%</div>
           <div className="product-tools">

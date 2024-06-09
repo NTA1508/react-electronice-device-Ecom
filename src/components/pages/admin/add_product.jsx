@@ -5,22 +5,21 @@ import { Link } from "react-router-dom";
 export default function AddProduct() {
   // const navigate = useNavigate()
   const [productName, setProductName] = useState();
-  const [image, setImage] = useState();
-  const [productType, setProductType] = useState();
+  const [productImage, setImage] = useState();
+  const [type, setProductType] = useState();
   const [description, setDescription] = useState();
   const [price, setPrice] = useState();
   const [sales, setSales] = useState();
-  const [promotionType, setPromotionType] = useState();
+  const [saleType, setPromotionType] = useState();
   const [storageAddress, setStorageAddress] = useState();
-  const [stock, setStock] = useState();
+  const [stockNumber, setStock] = useState();
   // const [successMessage, setSuccessMessage] = useState("");
 
   const Submit = (e) => {
     e.preventDefault();
-    console.log({productType, stock, storageAddress})
     axios
       .post("http://localhost:8081/api/v1/product/add", {
-        productName, image, productType, description, price, sales, promotionType, storageAddress, stock
+        productName, productImage, type, description, price, sales, saleType, storageAddress, stockNumber
       })
       .then((result) => {
         console.log(result);
@@ -52,7 +51,7 @@ export default function AddProduct() {
       <div className="wrapper">
         <div className="contact-title">
           <div className="contact-fix">
-            <Link to="/admin">Home</Link>
+            <Link to="/admin">Admin</Link>
             &nbsp;/&nbsp;
             <p>Add product</p>
           </div>
@@ -207,7 +206,7 @@ export default function AddProduct() {
             >
               Product Pictures
             </label>
-            <img src={image} alt="" style={{ width: "100px" }} />
+            <img src={productImage} alt="" style={{ width: "100px" }} />
             <input
               type="file"
               style={{ width: "100%", padding: 8, boxSizing: "border-box" }}

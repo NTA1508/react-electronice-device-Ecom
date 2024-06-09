@@ -17,18 +17,18 @@ export default function EditProduct() {
 
   useEffect(() => {
     axios
-      .get("https://web-shopping-exclusive.onrender.com/products/" + id)
+      .get(`http://localhost:8081/api/v1/product/${id}`)
       .then((result) => {
         console.log(result);
-        setProductName(result.data.product_name);
-        setImage(result.data.product_image);
+        setProductName(result.data.productName);
+        setImage(result.data.productImage);
         setProductType(result.data.type);
-        setDescription(result.data.deciption);
+        setDescription(result.data.description);
         setPrice(result.data.price);
         setSales(result.data.sales);
-        setPromotionType(result.data.sale_type);
-        setStorageAddress(result.data.storage_address);
-        setStock(result.data.stock_number);
+        setPromotionType(result.data.saleType);
+        setStorageAddress(result.data.storageAddress);
+        setStock(result.data.stockNumber);
       })
       .catch((err) => console.log(err));
   },[id]);
@@ -69,7 +69,7 @@ export default function EditProduct() {
       <div className="wrapper">
         <div className="contact-title">
           <div className="contact-fix">
-            <Link to="/admin">Home</Link>
+            <Link to="/admin">Admin</Link>
             &nbsp;/&nbsp;
             <Link to="/all_products">All Products</Link>
             &nbsp;/&nbsp;
