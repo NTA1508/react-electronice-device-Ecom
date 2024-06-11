@@ -20,7 +20,6 @@ function Profile() {
     axios
       .get(`http://localhost:8081/api/v1/user/${id}`)
       .then((result) => {
-        // console.log(result)
         setUserName(result.data.userName);
         setPhoneNumber(result.data.phoneNumber);
         setEmail(result.data.email);
@@ -33,13 +32,11 @@ function Profile() {
   const Update = (e) => {
     e.preventDefault();
     axios
-      .put("https://web-shopping-exclusive.onrender.com/updateUser/" + id, {
+      .post(`http://localhost:8081/api/v1/user/update/${id}`, {
         userName,
-        phoneNumber,
         email,
+        phoneNumber,
         address,
-        currentpass,
-        newpass,
       })
       .then((result) => {
         console.log(result);

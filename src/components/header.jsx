@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useCartContext } from "../useCartContext";
+
 export default function Header() {
   const { cartProduct } = useCartContext();
   const [isMdAccountVisible, setIsMdAccountVisible] = useState(false);
@@ -13,21 +15,27 @@ export default function Header() {
   const [searchResults, setSearchResults] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const [user, setUser] = useState(false);
-  const [id, setId] = useState();
-  const [isAdmin, setAdmin] = useState(false);
-  // console.log(isAdmin)
+  const [user, setUser] = useState(null);
+  let [isAdmin, setAdmin] = useState(false);
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    axios
-      .get("https://web-shopping-exclusive.onrender.com/user/" + token)
-      .then((result) => {
-        console.log(result.data);
-        setId(result.data.id);
-        setAdmin(result.data.isAdmin);
-      })
-      .catch((err) => console.log(err));
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      setUser(decodedToken);
+      setAdmin(decodedToken.isAdmin);
+      axios
+        .get(`http://localhost:8081/api/v1/user/${decodedToken.id}`)
+        .then((result) => {
+          if(result.data.role === "USER"){
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            isAdmin = "true"
+          }
+          setUser(result.data);
+          setAdmin(result.data.role);
+        })
+        .catch((err) => console.log(err));
+    }
   }, []);
 
   useEffect(() => {
@@ -56,14 +64,6 @@ export default function Header() {
       .catch((err) => console.log(err));
   }, []);
 
-  useEffect(() => {
-    if (localStorage.getItem("token") == null) {
-      console.log("sdasdsad");
-    } else {
-      setUser(true);
-    }
-  }, []);
-
   const handleAccountButtonClick = (event) => {
     event.stopPropagation();
     setIsMdAccountVisible((prev) => !prev);
@@ -77,11 +77,9 @@ export default function Header() {
   };
 
   useEffect(() => {
-    // Filter products based on the search query
     const filteredProducts = products.filter((product) =>
       product.productName.toLowerCase().startsWith(searchQuery.toLowerCase())
     );
-
     setSearchResults(filteredProducts);
   }, [searchQuery, products]);
 
@@ -221,7 +219,7 @@ export default function Header() {
                 </div>
               </Link>
               <div
-                class="tools-item account"
+                className="tools-item account"
                 id="account"
                 onClick={handleAccountButtonClick}
                 ref={accountButtonRef}
@@ -234,7 +232,7 @@ export default function Header() {
                   style={{ display: isMdAccountVisible ? "block" : "none" }}
                   ref={mdAccountRef}
                 >
-                  <Link to={`/profile/${id}`}>
+                  <Link to={`/profile/${user ? user.id : ""}`}>
                     <i className="bx bx-user" />
                     <span>Manage My Account</span>
                   </Link>
