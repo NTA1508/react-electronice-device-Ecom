@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-import { useCartContext } from "../useCartContext";
 
 export default function Header() {
-  const { cartProduct } = useCartContext();
   const [isMdAccountVisible, setIsMdAccountVisible] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState(null);
   const accountButtonRef = useRef(null);
@@ -17,22 +15,35 @@ export default function Header() {
 
   const [user, setUser] = useState(null);
   let [isAdmin, setAdmin] = useState(false);
+  let [cartNum, setCartNum] = useState(0)
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       const decodedToken = jwtDecode(token);
       setUser(decodedToken);
-      setAdmin(decodedToken.isAdmin);
       axios
         .get(`http://localhost:8081/api/v1/user/${decodedToken.id}`)
         .then((result) => {
-          if(result.data.role === "USER"){
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            isAdmin = "true"
-          }
+          setAdmin(result.data.role === "ADMIN"); // Set isAdmin boolean value
           setUser(result.data);
-          setAdmin(result.data.role);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, []);
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    if (token) {
+      axios
+        .get(`http://localhost:8081/api/v1/cart/getCart/${token}`)
+        .then((result) => {
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          cartNum = 0
+          for (let index = 0; index < result.data.length; index++) {
+            cartNum ++
+          }
+          setCartNum(cartNum)
         })
         .catch((err) => console.log(err));
     }
@@ -214,7 +225,7 @@ export default function Header() {
                 <div className="tools-item">
                   <i className="bx bx-cart-alt" />
                   <span className="number-icon" id="cart-number">
-                    {cartProduct.length}
+                    {cartNum}
                   </span>
                 </div>
               </Link>

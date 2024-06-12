@@ -7,32 +7,37 @@ import { Link, useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const [products, setProduct] = useState(null);
-  const {setCartProduct} = useCartContext();
+  const [product, setProduct] = useState(null);
+  const { setCartProduct } = useCartContext();
+  const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
     // Fetch the product details from the server
     axios
       .get(`http://localhost:8081/api/v1/product/${id}`)
       .then((response) => {
-        console.log(response.data);
         setProduct(response.data);
       })
       .catch((error) => console.error("Error fetching product details:", error));
   }, [id]);
 
-  const Add = useCallback(
+  const addToCart = useCallback(
     (product) => {
-      const cart = { ...product, quantity: 1 };
-      // const newData = cartProduct.map((item) => (item._id === id ? { ...item, quantity: value * 1 } : item));
-      setCartProduct((prev) => [...prev, cart]);
+      axios
+        .post(`http://localhost:8081/api/v1/cart/addCart/${id}/${token}`, { quantity: 1 })
+        .then((response) => {
+          setCartProduct((prev) => [...prev, { ...product, quantity: 1 }]);
+          window.location.reload()
+          alert("Product has been added to cart ")
+        })
+        .catch((error) => console.error("Error adding product to cart:", error));
     },
-    [setCartProduct]
+    [id, token, setCartProduct]
   );
 
   return (
     <>
-      {products ? (
+      {product ? (
         <div className="container">
           <div className="wrapper">
             <div className="wishlist-nav">
@@ -40,13 +45,13 @@ const ProductDetail = () => {
                 <div className="contact-fix">
                   <Link to="/home">Home</Link>
                   &nbsp;/&nbsp;
-                  <p>{products.productName}</p>
+                  <p>{product.productName}</p>
                 </div>
               </div>
               <div className="product-wrap">
                 <ChangeImage />
                 <div className="product-content">
-                  <h2>{products.productName}</h2>
+                  <h2>{product.productName}</h2>
                   <nav className="pro-nav-st">
                     <div className="product-ct-star">
                       <i className="bi bi-star-fill" />
@@ -56,20 +61,30 @@ const ProductDetail = () => {
                       <i className="bi bi-star-fill" />
                     </div>
                     <span>|</span>
-                    <p>in stock: {products.stockNumber}</p>
+                    <p>in stock: {product.stockNumber}</p>
                   </nav>
-                  <h1>${products.price}</h1>
-                  <p>{products.description}</p>
+                  <div style={{display: "flex"}}>
+                    {product.saleType === "no" 
+                      ? 
+                        <h1 style={{marginRight: "20px"}} id="price-new">${product.price}</h1>
+                      :
+                      <>
+                        <h1 style={{marginRight: "20px"}} id="price-old">${product.price}</h1>
+                        <h1 id="price-new">${product.price - product.price * product.sales / 100}</h1>
+                      </>
+                    }
+                  </div>
+                  <p>{product.description}</p>
                   <hr />
                   <div className="product-nb">
                     <nav>
-                      <ProductIncrement maxIncrement={products.stockNumber} />
+                      <ProductIncrement maxIncrement={product.stockNumber} />
                       <Link to="#">
                         <button
                           className="pro-btn"
                           type="button"
                           onClick={() => {
-                            Add(products);
+                            addToCart(product);
                           }}
                         >
                           Buy Now
@@ -88,4 +103,5 @@ const ProductDetail = () => {
     </>
   );
 };
+
 export default ProductDetail;

@@ -86,7 +86,7 @@ function Profile() {
                   <label>User Name</label>
                   <input
                     className="contact-input"
-                    id="account-input"
+                    id="account-input account-input1"
                     type="text"
                     value={userName}
                     disabled={edit === false}
@@ -97,7 +97,7 @@ function Profile() {
                   <label>Phone Number</label>
                   <input
                     className="contact-input"
-                    id="account-input"
+                    id="account-input account-input2"
                     type="text"
                     value={phoneNumber}
                     disabled={edit === false}
@@ -110,7 +110,7 @@ function Profile() {
                   <label>Email</label>
                   <input
                     className="contact-input"
-                    id="account-input"
+                    id="account-input account-input3"
                     type="text"
                     value={email}
                     disabled={edit === false}
@@ -121,7 +121,7 @@ function Profile() {
                   <label>Address</label>
                   <input
                     className="contact-input"
-                    id="account-input"
+                    id="account-input account-input4"
                     type="text"
                     value={address}
                     disabled={edit === false}
@@ -134,7 +134,7 @@ function Profile() {
                 <div className="account-pass">
                   <input
                     className="contact-input"
-                    id="account-input"
+                    id="account-input account-input5"
                     type="password"
                     disabled={edit === false}
                     placeholder="Current Passwod"
@@ -143,7 +143,7 @@ function Profile() {
                   />
                   <input
                     className="contact-input"
-                    id="account-input"
+                    id="account-input account-input6"
                     type="password"
                     disabled={edit === false}
                     placeholder="New Passwod"

@@ -18,7 +18,6 @@ const MyOrder = () => {
               <thead>
                 <tr>
                   <th>Oder ID</th>
-                  <th>Product picture</th>
                   <th>Name product</th>
                   <th>Quantity</th>
                   <th>Price</th>
@@ -28,9 +27,6 @@ const MyOrder = () => {
               <tbody>
                 <tr>
                   <td className="cart-text">1</td>
-                  <td className="cart-img">
-                    <img src="./assets/images/product-1a.png" alt="img" />
-                  </td>
                   <td className="cart-text">HAVIT HV-G92 Gamepad</td>
                   <td className="cart-text">$160</td>
                   <td className="cart-text">$160</td>
@@ -38,9 +34,6 @@ const MyOrder = () => {
                 </tr>
                 <tr>
                   <td className="cart-text">1</td>
-                  <td className="cart-img">
-                    <img src="./assets/images/product-1a.png" alt="img" />
-                  </td>
                   <td className="cart-text">HAVIT HV-G92 Gamepad</td>
                   <td className="cart-text">$160</td>
                   <td className="cart-text">$160</td>

@@ -22,7 +22,6 @@ export default function AddProduct() {
         productName, productImage, type, description, price, sales, saleType, storageAddress, stockNumber
       })
       .then((result) => {
-        console.log(result);
         alert('Add Product Successfully')
         window.location.replace('/admin')
       })
