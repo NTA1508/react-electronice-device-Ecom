@@ -52,27 +52,27 @@ const CountdownTimer = () => {
         <img src={banner} alt="banner-img" />
       </div>
       <div className="banner-wrap">
-        <h4>Categories</h4>
-        <h1>Enhance Your Music Experience</h1>
+        <h4>カテゴリー</h4>
+        <h1>音楽体験を向上させる</h1>
         <div className="banner-time">
           <div className="banner-item">
             <span id="b-days">{days}</span>
-            <h4>Days</h4>
+            <h4>日</h4>
           </div>
           <div className="banner-item">
             <span id="b-hours">{hours}</span>
-            <h4>Hours</h4>
+            <h4>時</h4>
           </div>
           <div className="banner-item">
             <span id="b-minutes">{minutes}</span>
-            <h4>minutes</h4>
+            <h4>分</h4>
           </div>
           <div className="banner-item">
             <span id="b-seconds">{seconds}</span>
-            <h4>Seconds</h4>
+            <h4>秒</h4>
           </div>
         </div>
-        <button className="banner-button">Buy Now!</button>
+        <button className="banner-button">今すぐ購入する!</button>
       </div>
     </section>
   );

@@ -46,25 +46,25 @@ const CountdownBannerTimer = () => {
 
     return (
         <div className="todays-title">
-        <h1>Flash Sales</h1>
+        <h1>フラッシュセール</h1>
         <div className="todays-time">
           <div className="todays-time__item">
-            <h4>Days</h4>
+            <h4>日</h4>
             <span id="days">{days}</span>
           </div>
           <p>:</p>
           <div className="todays-time__item">
-            <h4>Hours</h4>
+            <h4>時</h4>
             <span id="hours">{hours}</span>
           </div>
           <p>:</p>
           <div className="todays-time__item">
-            <h4>minutes</h4>
+            <h4>分</h4>
             <span id="minutes">{minutes}</span>
           </div>
           <p>:</p>
           <div className="todays-time__item">
-            <h4>Seconds</h4>
+            <h4>秒</h4>
             <span id="seconds">{seconds}</span>
           </div>
         </div>

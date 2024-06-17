@@ -11,26 +11,21 @@ export default function AboutUs() {
                 <div className="contact-nav">
                     <div className="contact-title">
                         <div className="contact-fix">
-                            <Link to="/home">Home</Link>
+                            <Link to="/home">ホーム</Link>
                             &nbsp;/&nbsp;
-                            <p>About</p>
+                            <p>概要</p>
                         </div>
                     </div>
                     <div className="about-nav">
                         <section className="about-story">
                             <div className="story-left">
-                                <h2>Our Story</h2>
+                                <h2>私たちの物語</h2>
                                 <p>
-                                    Launced in 2015, Exclusive is South Asia’s premier online shopping
-                                    makterplace with an active presense in Bangladesh. Supported by
-                                    wide range of tailored marketing, data and service solutions,
-                                    Exclusive has 10,500 sallers and 300 brands and serves 3 millioons
-                                    customers across the region.{" "}
+                                2015年に立ち上げられ、Exclusiveは南アジアで最も優れたオンラインショッピングマーケットプレイスであり、バングラデシュにおいても活発な存在です。幅広いマーケティング、データ、およびサービスソリューションを提供し、
+                                <strong>電気物</strong>は10,500人の販売者と300ブランドを擁し、地域全体で300万人の顧客にサービスを提供しています。{" "}
                                 </p>
                                 <p>
-                                    Exclusive has more than 1 Million products to offer, growing at a
-                                    very fast. Exclusive offers a diverse assotment in categories
-                                    ranging from consumer.
+                                <strong>電気物</strong>には100万以上の商品があり、非常に速いペースで成長しています。エクスクルーシブは消費者向けを含む多様なカテゴリーの品揃えを提供しています。
                                 </p>
                             </div>
                             <img
@@ -74,25 +69,25 @@ export default function AboutUs() {
                         <section className="section advantage">
                             <div className="advantage-list">
                                 <div className="advantage-item">
-                                    <div className="advantage-logo">
-                                        <img src={deliveryImg} alt="" />
-                                    </div>
-                                    <h3>FREE AND FAST DELIVERY</h3>
-                                    <p>Free delivery for all orders over $140</p>
+                                <div className="advantage-logo">
+                                    <img src={deliveryImg} alt="" />
+                                </div>
+                                <h3>無料で迅速な配送 </h3>
+                                <p>すべての注文に対して140ドル以上で送料無料</p>
                                 </div>
                                 <div className="advantage-item">
-                                    <div className="advantage-logo">
-                                        <img src={customImg} alt="" />
-                                    </div>
-                                    <h3>24/7 CUSTOMER SERVICE</h3>
-                                    <p>Friendly 24/7 customer support</p>
+                                <div className="advantage-logo">
+                                    <img src={customImg} alt="" />
+                                </div>
+                                <h3>24時間365日のカスタマーサービス</h3>
+                                <p>親切な24時間365日のカスタマーサポート</p>
                                 </div>
                                 <div className="advantage-item">
-                                    <div className="advantage-logo">
-                                        <img src={secureImg} alt="" />
-                                    </div>
-                                    <h3>MONEY BACK GUARANTEE</h3>
-                                    <p>We reurn money within 30 days</p>
+                                <div className="advantage-logo">
+                                    <img src={secureImg} alt="" />
+                                </div>
+                                <h3>返金保証</h3>
+                                <p>30日以内に返金します</p>
                                 </div>
                             </div>
                         </section>

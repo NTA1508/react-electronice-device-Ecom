@@ -43,7 +43,7 @@ const ProductDetail = () => {
             <div className="wishlist-nav">
               <div className="contact-title">
                 <div className="contact-fix">
-                  <Link to="/home">Home</Link>
+                  <Link to="/home">ホーム</Link>
                   &nbsp;/&nbsp;
                   <p>{product.productName}</p>
                 </div>
@@ -61,7 +61,7 @@ const ProductDetail = () => {
                       <i className="bi bi-star-fill" />
                     </div>
                     <span>|</span>
-                    <p>in stock: {product.stockNumber}</p>
+                    <p>在庫あり: {product.stockNumber}</p>
                   </nav>
                   <div style={{display: "flex"}}>
                     {product.saleType === "no" 
@@ -87,7 +87,7 @@ const ProductDetail = () => {
                             addToCart(product);
                           }}
                         >
-                          Buy Now
+                          今すぐ購入
                         </button>
                       </Link>
                     </nav>

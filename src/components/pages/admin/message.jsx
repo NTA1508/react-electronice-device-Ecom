@@ -7,7 +7,7 @@ const Message = () => {
 
   useEffect(() => {
     axios
-      .get("https://web-shopping-exclusive.onrender.com/feedback")
+      .get("http://localhost:8081/api/v1/message/allMessage")
       .then((result) => {
         setData(result.data);
       })
@@ -38,9 +38,9 @@ const Message = () => {
               <tbody>
                 {data.map((f, i) => (
                   <tr key={i}>
-                    <td className="cart-text">{f.name}</td>
-                    <td className="cart-text">{f.email}</td>
-                    <td className="cart-text">{f.phone_number}</td>
+                    <td className="cart-text">{f.customerName}</td>
+                    <td className="cart-text">{f.customerEmail}</td>
+                    <td className="cart-text">{f.customerPhone}</td>
                     <td className="cart-text">{f.message}</td>
                   </tr>
                 ))}

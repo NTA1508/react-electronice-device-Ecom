@@ -24,9 +24,9 @@ export default function MonthSalePage() {
                 <div className="wishlist-nav">
                     <div className="contact-title">
                         <div className="contact-fix">
-                            <Link href="/home">Home</Link>
+                            <Link href="/home">ホーム</Link>
                             &nbsp;/&nbsp;
-                            <p>Month sale</p>
+                            <p>月間セール</p>
                         </div>
                     </div>
                     <div className="wishlist-wrap">
@@ -39,7 +39,7 @@ export default function MonthSalePage() {
                                             <div className="product-item__img">
                                             <img src= {`http://localhost:8081/api/v1/product/show/${product.id}`} alt="product-img" />
                                                 <button className="add-cart" type="button">
-                                                    Add To Cart
+                                                購入する
                                                 </button>
                                             </div>
                                             <h4 className="product-name webkit-text">{product.productName}</h4>

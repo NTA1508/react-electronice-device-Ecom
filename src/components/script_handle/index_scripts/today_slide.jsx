@@ -33,7 +33,7 @@ const ToDaySlide = () => {
 
   return (
     <section className="section todays">
-      <div className="section-title">Today's</div>
+      <div className="section-title">今日</div>
       <div className="swiper todays-slide">
         <CountdownBannerTimer />
         <TodaysProducts />
@@ -43,7 +43,7 @@ const ToDaySlide = () => {
         </div>
       </div>
       <div className="section-button">
-        <Link to='/day_sale'><button>View All Products</button></Link>
+        <Link to='/day_sale'><button>すべて見る</button></Link>
       </div>
     </section>
   );

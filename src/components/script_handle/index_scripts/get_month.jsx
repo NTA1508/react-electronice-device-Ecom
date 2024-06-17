@@ -28,7 +28,7 @@ const ProductList = () => {
             <div className="product-item__img">
             <img src= {`http://localhost:8081/api/v1/product/show/${product.id}`} alt="product-img" />
               <button className="add-cart" type="button">
-                Add To Cart
+              購入する
               </button>
             </div>
             <h4 className="product-name webkit-text">{product.productName}</h4>

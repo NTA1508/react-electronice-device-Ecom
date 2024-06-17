@@ -24,9 +24,9 @@ export default function TodaySalePage() {
                 <div className="wishlist-nav">
                     <div className="contact-title">
                         <div className="contact-fix">
-                            <Link to="/home">Home</Link>
+                            <Link to="/home">ホーム</Link>
                             &nbsp;/&nbsp;
-                            <p>Day sale</p>
+                            <p>日替わりセール</p>
                         </div>
                     </div>
                     <div className="wishlist-wrap">
@@ -39,7 +39,7 @@ export default function TodaySalePage() {
                                             <div className="product-item__img">
                                             <img src= {`http://localhost:8081/api/v1/product/show/${product.id}`} alt="product-img" />
                                                 <button className="add-cart" type="button">
-                                                    Add To Cart
+                                                購入する
                                                 </button>
                                             </div>
                                             <h4 className="product-name webkit-text">{product.productName}</h4>

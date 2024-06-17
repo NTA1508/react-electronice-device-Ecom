@@ -105,10 +105,9 @@ export default function Header() {
         <div className="hunter">
           <p>
             <span>
-              Summer Sale For All Swim Suits And Free Express Delivery - OFF
-              50%!
+            すべての水着がサマーセールで50％オフ＆送料無料のエクスプレス配送！
             </span>
-            <Link to="/home">ShopNow</Link>
+            <Link to="/home">今すぐ購入する</Link>
           </p>
         </div>
         <div className="container">
@@ -124,7 +123,7 @@ export default function Header() {
                 }`}
                 onClick={() => handleNavItemClick("home")}
               >
-                Home
+                ホーム
               </NavLink>
               <NavLink
                 to="/contact"
@@ -133,7 +132,7 @@ export default function Header() {
                 }`}
                 onClick={() => handleNavItemClick("contact")}
               >
-                Contact
+                お問い合わせ
               </NavLink>
               <NavLink
                 to="/about"
@@ -142,7 +141,7 @@ export default function Header() {
                 }`}
                 onClick={() => handleNavItemClick("about")}
               >
-                About
+                概要
               </NavLink>
               <NavLink
                 to="/login"
@@ -152,7 +151,7 @@ export default function Header() {
                 onClick={() => handleNavItemClick("login")}
                 style={{ display: user ? "none" : "" }}
               >
-                Login
+                ログイン
               </NavLink>
               <NavLink
                 to="/admin"
@@ -162,7 +161,7 @@ export default function Header() {
                 onClick={() => handleNavItemClick("admin")}
                 style={{ display: isAdmin ? "" : "none" }}
               >
-                Admin
+                管理者
               </NavLink>
             </div>
             <div className="tools-list">
@@ -170,7 +169,7 @@ export default function Header() {
                 <input
                   className="search-input"
                   type="text"
-                  placeholder="Search..."
+                  placeholder="検索..."
                   value={searchQuery}
                   onChange={handleSearchInputChange}
                 />
@@ -180,8 +179,8 @@ export default function Header() {
                     {searchResults.length > 0 ? (
                       <>
                         <div className="search-title">
-                          Search Results: &nbsp;
-                          <span>{searchResults.length}</span>&nbsp;Results
+                        検索結果: &nbsp;
+                          <span>{searchResults.length}</span>&nbsp;結果
                         </div>
                         <div className="search-list">
                           {searchResults.map((result) => (
@@ -197,12 +196,12 @@ export default function Header() {
                     ) : (
                       <>
                         <div className="search-title">
-                          Search Results: &nbsp;<span>0</span>&nbsp;Results
+                        検索結果: &nbsp;<span>0</span>&nbsp;結果
                         </div>
                         <div className="search-list">
                           <div className="search-item">
                             <i className="bx bx-search icon-search"></i>
-                            <span>No results for {searchQuery}</span>
+                            <span>{searchQuery}がありません </span>
                           </div>
                         </div>
                       </>
@@ -245,15 +244,15 @@ export default function Header() {
                 >
                   <Link to={`/profile/${user ? user.id : ""}`}>
                     <i className="bx bx-user" />
-                    <span>Manage My Account</span>
+                    <span>アカウントを管理</span>
                   </Link>
                   <Link to={"/order"}>
                     <i className="bx bxs-shopping-bags" />
-                    <span>My Order</span>
+                    <span>私の注文</span>
                   </Link>
                   <Link onClick={handleLogOut}>
                     <i className="bx bx-log-out" />
-                    <span>Logout</span>
+                    <span>ログアウト</span>
                   </Link>
                 </div>
               </div>

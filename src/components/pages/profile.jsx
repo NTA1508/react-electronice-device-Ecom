@@ -8,8 +8,6 @@ function Profile() {
   const [email, setEmail] = useState();
   const [address, setAddress] = useState();
   // const [avata, setAvata] = useState("");
-  const [currentpass, setCurrentPass] = useState("");
-  const [newpass, setNewPass] = useState("");
   const { id } = useParams();
 
   const check = () => {
@@ -61,13 +59,13 @@ function Profile() {
           <div className="contact-title">
             <div className="contact-fix">
               <div>
-                <Link to={"/"}>Home</Link>
+                <Link to={"/"}>ホーム</Link>
                 &#160;/&#160;
               </div>
               <div className="contact-fix2">
-                <p>My Account</p>&#160;
+                <p>アカウントを管理</p>&#160;
                 <p style={{ float: "right" }}>
-                  Wellcome {userName}
+                  {userName}ーさん、 こんにちは
                 </p>
               </div>
             </div>
@@ -75,7 +73,7 @@ function Profile() {
           <div className="contact-wrap">
             <form onSubmit={Update} className="contact-form contact-form-txt">
               <div className="edit">
-                <h2>Edit Your Profile</h2>
+                <h2>プロフィールを編集する</h2>
                 <Link onClick={check}>
                   <i className="bx bx-edit-alt"></i>
                 </Link>
@@ -83,7 +81,7 @@ function Profile() {
               {/* <img src={avata} alt="" style={{ width: "50px"}} /> */}
               <div className="account-group">
                 <div className="account-form">
-                  <label>User Name</label>
+                  <label>名前</label>
                   <input
                     className="contact-input"
                     id="account-input account-input1"
@@ -94,7 +92,7 @@ function Profile() {
                   />
                 </div>
                 <div className="account-form">
-                  <label>Phone Number</label>
+                  <label>電話番号</label>
                   <input
                     className="contact-input"
                     id="account-input account-input2"
@@ -107,7 +105,7 @@ function Profile() {
               </div>
               <div className="account-group">
                 <div className="account-form">
-                  <label>Email</label>
+                  <label>メール</label>
                   <input
                     className="contact-input"
                     id="account-input account-input3"
@@ -118,7 +116,7 @@ function Profile() {
                   />
                 </div>
                 <div className="account-form">
-                  <label>Address</label>
+                  <label>住所</label>
                   <input
                     className="contact-input"
                     id="account-input account-input4"
@@ -129,29 +127,7 @@ function Profile() {
                   />
                 </div>
               </div>
-              <div className="account-form">
-                <label>Password Changes</label>
-                <div className="account-pass">
-                  <input
-                    className="contact-input"
-                    id="account-input account-input5"
-                    type="password"
-                    disabled={edit === false}
-                    placeholder="Current Passwod"
-                    value={currentpass}
-                    onChange={(e) => setCurrentPass(e.target.value)}
-                  />
-                  <input
-                    className="contact-input"
-                    id="account-input account-input6"
-                    type="password"
-                    disabled={edit === false}
-                    placeholder="New Passwod"
-                    value={newpass}
-                    onChange={(e) => setNewPass(e.target.value)}
-                  />
-                </div>
-              </div>
+              
               <div className="account-button">
                 {edit === true && (
                   <>
@@ -161,14 +137,14 @@ function Profile() {
                       type="button"
                       onClick={() => window.location.reload(true)}
                     >
-                      Cancel
+                      キャンセル
                     </button>
                     <button
                       className="contact-button"
                       id="save-button"
                       type="submit"
                     >
-                      Save changes
+                      セーブ
                     </button>
                   </>
                 )}

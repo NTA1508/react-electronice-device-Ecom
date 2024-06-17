@@ -30,15 +30,23 @@ export default function Cart() {
     }
   }, [setCartProduct]);
 
+  const handleDelete = (id, e) => {
+    e.preventDefault();
+    axios
+      .delete(`http://localhost:8081/api/v1/cart/delete/${id}`)
+      .then(() => window.location.reload())
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="container">
       <div className="wrapper">
         <div className="wishlist-nav">
           <div className="contact-title">
             <div className="contact-fix">
-              <Link to="/home">Home</Link>
+              <Link to="/home">ホーム</Link>
               &nbsp;/&nbsp;
-              <p>Cart</p>
+              <p>カート</p>
             </div>
           </div>
           <div className="cart-wrap">
@@ -46,10 +54,10 @@ export default function Cart() {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Name product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Action</th>
+                  <th>製品名</th>
+                  <th>価格</th>
+                  <th>数量</th>
+                  <th>行動</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,18 +69,18 @@ export default function Cart() {
                       <td className="cart-text">{item.product.saleType !== "no" ? (item.product.price - item.product.price * item.product.sales / 100) : item.product.price}</td>
                       <td className="cart-adjust">{item.quantity}</td>
                       <td>
-                        <Link to="#">
-                          <button>
-                            <i className="bi bi-trash3" />
-                          </button>
-                        </Link>
+                      <Link to="#" onClick={(e) => handleDelete(item.cartId, e)}>
+                        <button style={{ background: "none", border: "none", padding: 0 }}>
+                          <i className="bi bi-trash3" />
+                        </button>
+                      </Link>
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
                     <td colSpan="6" className="cart-text">
-                      Your cart is empty.
+                    カートは空です。
                     </td>
                   </tr>
                 )}
@@ -80,31 +88,28 @@ export default function Cart() {
             </table>
             <div className="cart-synthetic">
               <h4>
-                Total number of products: <span>{cartProduct.length}</span> product
+              すべての商品数: <span>{cartProduct.length}</span> 商品
               </h4>
-              <button className="remove-all" type="button">
-                Remove all
-              </button>
             </div>
             <div className="cart-pay">
               <div className="cart-pay__body">
                 <div className="cart-poin">
-                  <p>Total cost of goods:</p> <span>${totalCost}</span>
+                  <p>商品の合計費用: </p> <span>${totalCost}</span>
                 </div>
                 <div className="cart-poin">
-                  <p>Transport fee:</p> <span>${totalCost * 1  / 100}</span>
+                  <p>送料: </p> <span>${totalCost >= 140 ? 0 : totalCost * 1  / 100}</span>
                 </div>
                 <div className="cart-poin">
-                  <p>Total payment:</p> <span>${totalCost + totalCost * 1  / 100} </span>
+                  <p>総支払額:</p> <span>${totalCost >= 140 ? totalCost :totalCost + totalCost * 1  / 100} </span>
                 </div>
               </div>
               <div className="cart-footer">
                 <p>
-                  Pressing 'Place Order' implies that you agree to comply with <Link to="#">Exclusive's Terms and Conditions.</Link>
+                「注文する」を押すことは、以下に従うことに同意することを意味します。 <Link to="#">電気物の利用規約 </Link>
                 </p>
                 <Link to="/checkout">
                   <button className="order-cart" type="button">
-                    Proceed to payment
+                  支払いに進む
                   </button>
                 </Link>
               </div>

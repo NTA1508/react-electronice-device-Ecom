@@ -26,7 +26,7 @@ export default function TV() {
                     <div className="category-item-product">
                         <div className="menu-title">
                             <NavLink to={"/products"}>
-                                <p>All Products</p>
+                                <p>すべての製品</p>
                             </NavLink>
                         </div>
                     </div>
@@ -34,56 +34,56 @@ export default function TV() {
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/mobiles"}>
-                                    <p>Mobile phones</p>
+                                    <p>携帯電話</p>
                                 </NavLink>
                             </div>
                         </div>
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/laptops"}>
-                                    <p>Laptops and Tablets</p>
+                                    <p>パソコン</p>
                                 </NavLink>
                             </div>
                         </div>
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/tv"}>
-                                    <p style={{ color: "#DB4444" }}>Televisions and Monitors</p>
+                                    <p style={{ color: "#DB4444" }}>テレビ</p>
                                 </NavLink>
                             </div>
                         </div>
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/audios"}>
-                                    <p>Audio and Headphones</p>
+                                    <p>ヘッドフォン</p>
                                 </NavLink>
                             </div>
                         </div>
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/cameras"}>
-                                    <p>Cameras</p>
+                                    <p>カメラ</p>
                                 </NavLink>
                             </div>
                         </div>
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/consoles"}>
-                                    <p>Game consoles</p>
+                                    <p>ゲームコンソール</p>
                                 </NavLink>
                             </div>
                         </div>
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/printers"}>
-                                    <p>Printers and Scanners</p>
+                                    <p>プリンター</p>
                                 </NavLink>
                             </div>
                         </div>
                         <div className="category-item">
                             <div className="menu-title">
                                 <NavLink to={"/smart"}>
-                                    <p>Smart home appliances</p>
+                                    <p>スマートホーム家電</p>
                                 </NavLink>
                             </div>
                         </div>
@@ -92,9 +92,9 @@ export default function TV() {
                 <div className="wishlist-nav-1" style={{ marginLeft: "10px" }}>
                     <div className="contact-title">
                         <div className="contact-fix">
-                            <Link to="/home">Home</Link>
+                            <Link to="/home">ホーム</Link>
                             &nbsp;/&nbsp;
-                            <p>Televisions and Monitors</p>
+                            <p>テレビ</p>
                         </div>
                     </div>
                     <div className="wishlist-wrap">
@@ -107,7 +107,7 @@ export default function TV() {
                                             <div className="product-item__img">
                                             <img src= {`http://localhost:8081/api/v1/product/show/${product.id}`} alt="product-img" />
                                                 <button className="add-cart" type="button">
-                                                    Add To Cart
+                                                購入する
                                                 </button>
                                             </div>
                                             <h4 className="product-name webkit-text">{product.productName}</h4>

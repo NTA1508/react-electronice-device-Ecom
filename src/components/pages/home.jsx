@@ -26,63 +26,63 @@ class Home extends Component {
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/products">
-                      <p>All products</p>
+                      <p>すべての製品</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/mobiles">
-                      <p>Mobile phones</p>
+                      <p>携帯電話</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/laptops">
-                      <p>Laptops and Tablets</p>
+                      <p>パソコン</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/tv">
-                      <p>Televisions and Monitors</p>
+                      <p>テレビ</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/audios">
-                      <p>Audio and Headphones</p>
+                      <p>オーディオ</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/cameras">
-                      <p>Cameras and Camcorders</p>
+                      <p>カメラ</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/consoles">
-                      <p>Game consoles</p>
+                      <p>ゲームコンソール</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/printers">
-                      <p>Printers and Scanners</p>
+                      <p>プリンター</p>
                     </Link>
                   </div>
                 </div>
                 <div className="category-item">
                   <div className="menu-title">
                     <Link to="/smart">
-                      <p>Smart home appliances</p>
+                      <p>スマートホーム家電</p>
                     </Link>
                   </div>
                 </div>
@@ -93,10 +93,10 @@ class Home extends Component {
             <ToDaySlide />
             {/* month */}
             <section className="section month">
-              <div className="section-title">This Month</div>
+              <div className="section-title">今月</div>
               <div className="todays-title month-title">
                 <DaysLeftInMonth />
-                <Link to="/month_sale" class="section-link">View All</Link>
+                <Link to="/month_sale" class="section-link">すべて見る</Link>
               </div>
               <MonthList />
             </section>
@@ -104,10 +104,10 @@ class Home extends Component {
             <CountdownTimer />
             {/* product */}
             <section className="section product">
-              <div className="section-title">Our Products</div>
+              <div className="section-title">当社の製品</div>
               <div className="swiper todays-slide">
                 <div className="todays-title">
-                  <h1>Explore Our Products</h1>
+                  <h1>製品を見る</h1>
                 </div>
                 <OurProducts />
                 <div className="todays-action">
@@ -118,9 +118,9 @@ class Home extends Component {
             </section>
             {/* featured */}
             <section className="section featured">
-              <div className="section-title">Featured</div>
+              <div className="section-title">注目商品</div>
               <div className="todays-title month-title">
-                <h1>New Arrival</h1>
+                <h1>新着商品</h1>
               </div>
               <div className="featured-wrap">
                 <div className="featured-left">
@@ -131,8 +131,8 @@ class Home extends Component {
                   />
                   <div className="featured-text">
                     <h2>PlayStation 5</h2>
-                    <p>Black and White version of the PS5 coming out on sale.</p>
-                    <Link to="#">Shop Now</Link>
+                    <p>PS5のブラックとホワイトバージョンが販売開始されます</p>
+                    <Link to="#">今すぐ購入する</Link>
                   </div>
                 </div>
                 <div className="featured-right">
@@ -144,8 +144,8 @@ class Home extends Component {
                     />
                     <div className="featured-text">
                       <h2>NINTENDO's Collections</h2>
-                      <p>Anytime, Anywhere, with anyone</p>
-                      <Link to="#">Shop Now</Link>
+                      <p>いつでも、どこでも、誰とでも</p>
+                      <Link to="#">今すぐ購入する</Link>
                     </div>
                   </div>
                   <div className="featured-box">
@@ -158,7 +158,7 @@ class Home extends Component {
                       <div className="featured-text">
                         <h2>Speakers</h2>
                         <p>Amazon wireless speakers</p>
-                        <Link to="#">Shop Now</Link>
+                        <Link to="#">今すぐ購入する</Link>
                       </div>
                     </div>
                     <div className="featured-vid">
@@ -169,8 +169,8 @@ class Home extends Component {
                       />
                       <div className="featured-text">
                         <h2>VR</h2>
-                        <p>Virtual world real reaction</p>
-                        <Link to="#">Shop Now</Link>
+                        <p>仮想世界、実際の反応 </p>
+                        <Link to="#">今すぐ購入する</Link>
                       </div>
                     </div>
                   </div>
@@ -184,22 +184,22 @@ class Home extends Component {
                   <div className="advantage-logo">
                     <img src={deliveryImg} alt="" />
                   </div>
-                  <h3>FREE AND FAST DELIVERY</h3>
-                  <p>Free delivery for all orders over $140</p>
+                  <h3>無料で迅速な配送 </h3>
+                  <p>すべての注文に対して140ドル以上で送料無料</p>
                 </div>
                 <div className="advantage-item">
                   <div className="advantage-logo">
                     <img src={customImg} alt="" />
                   </div>
-                  <h3>24/7 CUSTOMER SERVICE</h3>
-                  <p>Friendly 24/7 customer support</p>
+                  <h3>24時間365日のカスタマーサービス</h3>
+                  <p>親切な24時間365日のカスタマーサポート</p>
                 </div>
                 <div className="advantage-item">
                   <div className="advantage-logo">
                     <img src={secureImg} alt="" />
                   </div>
-                  <h3>MONEY BACK GUARANTEE</h3>
-                  <p>We reurn money within 30 days</p>
+                  <h3>返金保証</h3>
+                  <p>30日以内に返金します</p>
                 </div>
               </div>
             </section>
