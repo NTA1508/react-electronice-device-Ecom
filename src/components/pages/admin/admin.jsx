@@ -60,7 +60,7 @@ export default function Admin() {
                           marginBottom: 10,
                         }}
                       />
-                      <h4>Add Product</h4>
+                      <h4>商品を追加する</h4>
                       --------
                     </div>
                   </Link>
@@ -87,7 +87,7 @@ export default function Admin() {
                           marginBottom: 10,
                         }}
                       />
-                      <h4>All Products</h4>
+                      <h4>全商品</h4>
                       --------
                     </div>
                   </Link>
@@ -114,7 +114,7 @@ export default function Admin() {
                           marginBottom: 10,
                         }}
                       />
-                      <h4>Oder List</h4>
+                      <h4>注文リスト</h4>
                       --------
                     </div>
                   </Link>
@@ -141,7 +141,7 @@ export default function Admin() {
                           marginBottom: 10,
                         }}
                       />
-                      <h4>Messages</h4>
+                      <h4>マッサージ</h4>
                       --------
                     </div>
                   </Link>

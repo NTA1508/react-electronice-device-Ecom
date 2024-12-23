@@ -50,13 +50,13 @@ export default function AddProduct() {
       <div className="wrapper">
         <div className="contact-title">
           <div className="contact-fix">
-            <Link to="/admin">Admin</Link>
+            <Link to="/admin">管理者</Link>
             &nbsp;/&nbsp;
-            <p>Add product</p>
+            <p>商品を追加する</p>
           </div>
         </div>
         <div style={{ width: "100%", textAlign: "center" }}>
-          <h4 style={{ fontSize: "20px" }}>Add Product</h4>
+          <h4 style={{ fontSize: "20px" }}>商品を追加する</h4>
         </div>
         <form style={{ margin: 20 }} onSubmit={Submit}>
           <div style={{ marginBottom: 20 }}>
@@ -64,7 +64,7 @@ export default function AddProduct() {
               htmlFor="exampleInputEmail1"
               style={{ display: "block", marginBottom: 5 }}
             >
-              Product Name
+              製品名
             </label>
             <input
               type="text"
@@ -84,7 +84,7 @@ export default function AddProduct() {
             <label
               style={{ display: "block", marginBottom: 5 }}
             >
-              Product type
+              製品タイプ
             </label>
             <select
               style={{ width: "100%", padding: 8, boxSizing: "border-box" }}
@@ -107,7 +107,7 @@ export default function AddProduct() {
               style={{ display: "block", marginBottom: 5 }}
               onChange={(e) => setDescription(e.target.value)}
             >
-              Description
+              説明
             </label>
             <textarea
               id="exampleInputPassword1"
@@ -121,7 +121,7 @@ export default function AddProduct() {
               htmlFor="exampleInputPassword1"
               style={{ display: "block", marginBottom: 5 }}
             >
-              Price
+              価格
             </label>
             <input
               type="number"
@@ -135,7 +135,7 @@ export default function AddProduct() {
               htmlFor="exampleInputPassword1"
               style={{ display: "block", marginBottom: 5 }}
             >
-              Sales
+              セール
             </label>
             <input
               type="number"
@@ -157,7 +157,7 @@ export default function AddProduct() {
               htmlFor="inputState"
               style={{ display: "block", marginBottom: 5 }}
             >
-              Promotion type
+              セールタイプ
             </label>
             <select
               id="inputState"
@@ -175,7 +175,7 @@ export default function AddProduct() {
               htmlFor="exampleInputPassword1"
               style={{ display: "block", marginBottom: 5 }}
             >
-              Storage Address
+              保管場所の住所
             </label>
             <input
               type="text"
@@ -189,7 +189,7 @@ export default function AddProduct() {
               htmlFor="exampleInputPassword1"
               style={{ display: "block", marginBottom: 5 }}
             >
-              Stock Number
+              在庫
             </label>
             <input
               type="number"
@@ -203,7 +203,7 @@ export default function AddProduct() {
               htmlFor="exampleFormControlFile1"
               style={{ display: "block", marginBottom: 5 }}
             >
-              Product Pictures
+              商品画像
             </label>
             <img src={productImage} alt="" style={{ width: "100px" }} />
             <input
@@ -224,7 +224,7 @@ export default function AddProduct() {
                 cursor: "pointer",
               }}
             >
-              Add
+              追加する
             </button>
           </div>
         </form>

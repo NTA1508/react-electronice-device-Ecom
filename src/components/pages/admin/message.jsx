@@ -14,25 +14,36 @@ const Message = () => {
       .catch((err) => console.log(err));
   },[]);
 
+
+  
+  const handleDelete = (id, e) => {
+    e.preventDefault();
+    axios
+      .delete(`http://localhost:8081/api/v1/message/delete/${id}`)
+      .then(() => window.location.reload())
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="container">
       <div className="wrapper">
         <div className="wishlist-nav">
           <div className="contact-title">
             <div className="contact-fix">
-              <Link to="/admin">Home</Link>
+              <Link to="/admin">管理者</Link>
               &nbsp;/&nbsp;
-              <p>Message</p>
+              <p>メッセージ</p>
             </div>
           </div>
           <div className="cart-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Message</th>
+                  <th>名前</th>
+                  <th>メール</th>
+                  <th>電話番号</th>
+                  <th>マッサージ</th>
+                  <th>行動</th>
                 </tr>
               </thead>
               <tbody>
@@ -42,6 +53,13 @@ const Message = () => {
                     <td className="cart-text">{f.customerEmail}</td>
                     <td className="cart-text">{f.customerPhone}</td>
                     <td className="cart-text">{f.message}</td>
+                    <td>
+                      <Link to="#" onClick={(e) => handleDelete(f.messId, e)}>
+                        <button style={{ background: "none", border: "none", padding: 0 }}>
+                          <i className="bi bi-trash3" />
+                        </button>
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>

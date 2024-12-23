@@ -7,9 +7,9 @@ const OrdersList = () => {
         <div className="wishlist-nav">
           <div className="contact-title">
             <div className="contact-fix">
-              <Link to="/admin">Home</Link>
+              <Link to="/admin">管理者</Link>
               &nbsp;/&nbsp;
-              <p>Oders List</p>
+              <p>注文リスト</p>
             </div>
           </div>
           <div className="cart-wrap">
@@ -17,12 +17,12 @@ const OrdersList = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Phone number</th>
-                  <th>Product name</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
+                  <th>名前</th>
+                  <th>住所</th>
+                  <th>電話番号</th>
+                  <th>製品名</th>
+                  <th>数量</th>
+                  <th>価格</th>
                 </tr>
               </thead>
               <tbody>

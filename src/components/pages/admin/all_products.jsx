@@ -29,9 +29,9 @@ const AllProducts = () => {
         <div className="wishlist-nav">
           <div className="contact-title">
             <div className="contact-fix">
-              <Link to="/admin">Admin</Link>
+              <Link to="/admin">管理者</Link>
               &nbsp;/&nbsp;
-              <p>All products</p>
+              <p>全商品</p>
             </div>
           </div>
           <div className="cart-wrap">
@@ -39,15 +39,15 @@ const AllProducts = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Product picture</th>
-                  <th>Product name</th>
-                  <th>Product type</th>
-                  <th>Stock</th>
-                  <th>Price</th>
-                  <th>Sale</th>
-                  <th>Sale type</th>
-                  <th>Storage address</th>
-                  <th>Action</th>
+                  <th>商品画像</th>
+                  <th>製品名</th>
+                  <th>製品タイプ</th>
+                  <th>在庫</th>
+                  <th>価格</th>
+                  <th>セール</th>
+                  <th>セールタイプ</th>
+                  <th>保管場所の住所</th>
+                  <th>行動</th>
                 </tr>
               </thead>
               <tbody>
